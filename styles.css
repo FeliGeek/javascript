@@ -26,12 +26,14 @@ button {
 li {
     font-size: 25px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px darkred;
 }
 
 ul {
     font-size: 25px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     justify-items: center;
+    text-shadow: 1px 1px darkred;
 }
 
 section {
