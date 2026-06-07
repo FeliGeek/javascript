@@ -1,6 +1,7 @@
 const input = document.getElementById("input");
 const button = document.getElementById("button");
 const article = document.getElementById("article");
+const body = document.getElementById("body");
 
 let notes = [];
 
@@ -9,6 +10,26 @@ button.addEventListener("click",function(){
     notes.push(text);
     saveText();
     showText();
+    input.value = "";
+});
+
+input.addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+        let text = input.value;
+        notes.push(text);
+        saveText();
+        showText();
+        input.value = "";
+    };
+});
+
+body.addEventListener("keydown",function(event){
+    if(event.key === "Escape"){
+        let text = input.value;
+        notes.pop();
+        saveText();
+        showText();
+    };
 });
 
 function showText(){

@@ -39,3 +39,9 @@ div {
     text-shadow: 3px 3px rgb(56, 56, 56);
 
 }
+
+.sign {
+    padding: 50px;
+    position: sticky;
+    text-align: center;
+}
