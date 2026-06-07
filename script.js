@@ -2,43 +2,42 @@ const input = document.getElementById("input");
 const button = document.getElementById("button");
 const article = document.getElementById("article");
 
-let array = [];
+let notes = [];
 
 button.addEventListener("click",function(){
     let text = input.value;
-    array.push(text);
+    notes.push(text);
     saveText();
     showText();
 });
 
 function showText(){
     article.innerHTML = "";
-    array.forEach(function(item,index){
+    notes.forEach(function(note,indice){
         let div = document.createElement("div");
-        div.textContent = "- " + item + " ";
-        let eliminate = document.createElement("button");
-        eliminate.textContent = "❌";
-        eliminate.addEventListener("click",function(){
-            array.splice(index,1);
+        div.textContent = "- " + note + " ";
+        let boton = document.createElement("button");
+        boton.textContent = "X";
+        boton.addEventListener("click",function(){
+            notes.splice(indice,1);
             saveText();
             showText();
         });
-        div.appendChild(eliminate);
+        div.appendChild(boton);
         article.appendChild(div);
     });
 };
 
 function saveText(){
-    localStorage.setItem("array",JSON.stringify(array));
+    localStorage.setItem("notes", JSON.stringify(notes));
 };
 
 function loadText(){
-    let savedText = localStorage.getItem("array");
+    let savedText = localStorage.getItem("notes");
     if(savedText){
-        array = JSON.parse(savedText);
+        notes = JSON.parse(savedText);
+        showText();
     };
-    showText();
 };
 
 loadText();
-
